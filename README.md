@@ -1,2 +1,7 @@
-# ssh_login_forcer
+# ssh login forcer
 SSH script to login devices
+
+requirements:
+pip3 install paramiko
+
+
