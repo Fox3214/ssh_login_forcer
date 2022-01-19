@@ -83,9 +83,9 @@ def ssh_trying():
                 print (str(item.strip()) + " [-] Authentication failed! ...")
             except paramiko.SSHException:
                 print (str(item.strip()) + " [-] SSH Exception! ..." )
-            time.sleep(4)
             except Exception as e:
                 print (e)
+            time.sleep(4)
     
 banner()
 host_check_quest()
