@@ -73,7 +73,7 @@ def ssh_trying():
                 ssh = paramiko.SSHClient()
                 ssh.load_system_host_keys()
                 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                ssh.connect(server, username=username, password=password)
+                ssh.connect(server, username=username, password=password, timeout=4)
                 ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command(ssh_command)
                 output = ssh_stdout.readlines()
                 ssh.close
@@ -84,6 +84,8 @@ def ssh_trying():
             except paramiko.SSHException:
                 print (str(item.strip()) + " [-] SSH Exception! ..." )
             time.sleep(4)
+            except Exception as e:
+                print (e)
     
 banner()
 host_check_quest()
